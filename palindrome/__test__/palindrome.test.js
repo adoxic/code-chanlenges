@@ -46,4 +46,13 @@ describe('palindrome tests', () => {
     expect(actual).toEqual(expected);
   });
 
+  it('should work on a whole array', () => {
+    const arr = ['GODdog', '!!elle?', 'ada', 'nope'];
+
+    const actual = isPalindrome(arr);
+    const expected = [true, true, true, false];
+    
+    expect(actual).toEqual(expected);
+  });
+
 });
