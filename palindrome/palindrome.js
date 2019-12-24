@@ -3,19 +3,26 @@
 
 const isPalindrome = (arr) => {
   const trueFalseArr = arr.map(str => {
-    const cleanStr = str.replace('/!|.|,|?/g', '');
+    const cleanStr = str.toLowerCase().replace(/([^a-z|0-9])/g, '');
+
     let start = 0;
     let end = cleanStr.length;
+    let isTrue = true;
 
-    while(start > end) {
-      if(cleanStr.charAt(start) !== cleanStr.charAt(start)) return false;
+    while (start < end) {
+      
+      if(cleanStr.charAt(start) !== cleanStr.charAt(end -1)) {
+        isTrue = false;
+      };
+
       start++;
       end--;
     }
 
-    return true;
+    return isTrue;
 
   });
+  return trueFalseArr;
 }
 
 module.exports = { isPalindrome };
